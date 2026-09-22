@@ -16,15 +16,17 @@
             <?php endif; ?>
 
             <!-- 1. Crear un formulario con método POST que envíe los datos a la ruta 'register' -->
-            <form>
+            <form action="register.php" method="POST">
                 <div>
                     <!-- 1.1 Insertar un campo para ingresar el nombre completo -->
                 </div>
                 <div>
-                    <!-- 1.2 Insertar un campo para ingresar el email -->
+                    <!-- 1.2 Insertar un campo para ingresar el email --> <label for="mail">Correo Electronico:</label>
+                <input type="mail" id="mail" name="mail" placeholder="tu@correo.com" required>
                 </div>
                 <div>
-                    <!-- 1.3 Insertar un campo para ingresar la contraseña -->
+                    <!-- 1.3 Insertar un campo para ingresar la contraseña --> <label for="Contraseña">Contraseña:</label>
+<input type="Contraseña" id="Contraseña" name="Contraseña" placeholder="TuContraseña" required>
                 </div>
                 <!-- 1.3 Añadir un botón para enviar el formulario -->
             </form>

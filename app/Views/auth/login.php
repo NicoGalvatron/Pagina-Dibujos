@@ -22,10 +22,10 @@
                 <!-- 1.2 Insertar un campo para la contraseña --> <label for="Contraseña">Contraseña:</label>
 <input type="Contraseña" id="Contraseña" name="Contraseña" placeholder="TuContraseña" required>
                 </div>
-                <!-- 1.3 Añadir un botón para enviar el formulario -->
+                <!-- 1.3 Añadir un botón para enviar el formulario --> <button type="submit">Enviar</button>
             </form>
-            <div>
-            <!-- 2. Añadir un enlace para redirigir a 'register' si el usuario no tiene cuenta -->
+            <div class="register-link">
+            <!-- 2. Añadir un enlace para redirigir a 'register' si el usuario no tiene cuenta --> <p>¿No tenés una cuenta? <a href="<?= site_url('register') ?>">Registrate acá</a></p>
             </div>
         </div>
     </div>

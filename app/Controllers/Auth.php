@@ -26,21 +26,21 @@ class Auth extends BaseController
         */
 
         $rules = [
-            'name'   => '', // 2.1 Validá que el nombre sea obligatorio y tenga al menos 3 caracteres
-            'email'    => '', // 2.2 Validá que el email sea obligatorio, tenga un formato válido y sea único en la tabla 'users'
-            'password' => '' // 2.3 Validá que la contraseña sea obligatoria y tenga al menos 8 caracteres
+            'name'   => 'required|string|min:3', // 2.1 Validá que el nombre sea obligatorio y tenga al menos 3 caracteres
+            'email'    => 'required|email|unique:users,email', // 2.2 Validá que el email sea obligatorio, tenga un formato válido y sea único en la tabla 'users'
+            'password' => 'required|password|min:8' // 2.3 Validá que la contraseña sea obligatoria y tenga al menos 8 caracteres
         ];
 
-        if (!$this->validate()) { // 2.4 Validá los datos enviados desde el formulario de registro    
+        if (!$this->validate($rules)) { // 2.4 Validá los datos enviados desde el formulario de registro    
             return redirect()->back()->withInput()->with('errores', $this->validator->getErrors());
         }
 
         $userModel = new UserModel();
         $userModel->insert([
-            'name'   => '', // 2.5 Almacená el nombre enviado por POST
-            'email'    => '', // 2.6 Almacená el email enviado por POST
-            'password' => '', // 2.7 Almacená la contraseña enviada por POST, hasheada usando password_hash()
-            'role'     => '' // 2.8 Asigná el rol 'client' al nuevo usuario
+            'name'   => $_POST['name'], // 2.5 Almacená el nombre enviado por POST
+            'email'    => $_POST['email'], // 2.6 Almacená el email enviado por POST
+            'password' => isset($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : '', // 2.7 Almacená la contraseña enviada por POST, hasheada usando password_hash()
+            'role'     => 'client' // 2.8 Asigná el rol 'client' al nuevo usuario
         ]);
 
         return redirect()->to('login')->with('exito', 'Registro completado. Ahora podés iniciar sesión.'); // 2.9 Redirigí al usuario a la página de login
@@ -69,18 +69,18 @@ class Auth extends BaseController
         */
 
         $userModel = new UserModel();
-        $email = ''; // 4.1 Almacená el email enviado por POST 
-        $password = ''; // 4.2 Almacená la contraseña enviada por POST
+        $email = $_POST['email'] ?? ''; // 4.1 Almacená el email enviado por POST 
+        $password = $_POST['password'] ?? ''; // 4.2 Almacená la contraseña enviada por POST
 
-        $user = ''; // 4.3 Buscá al usuario en la base de datos usando el email
+        $user = $userModel->getByEmail($email); // 4.3 Buscá al usuario en la base de datos usando el email
 
-        if ($user && password_verify('', '')) { // 4.4 Verificá que la contraseña coincida con la almacenada en la base de datos
+        if ($user && password_verify($_POST['password'] ?? '', $user['password'])) { // 4.4 Verificá que la contraseña coincida con la almacenada en la base de datos
             
             session()->set([
-                'id'         => '', // 4.5 Asigná el id del usuario
-                'name'       => '', // 4.6 Asigná el nombre del usuario
-                'email'      => '', // 4.7 Asigná el email del usuario
-                'role'       => '', // 4.8 Asigná el rol del usuario
+                'id'         => $user['id'], // 4.5 Asigná el id del usuario
+                'name'       => $user['name'], // 4.6 Asigná el nombre del usuario
+                'email'      => $user['email'], // 4.7 Asigná el email del usuario
+                'role'       => $user['role'], // 4.8 Asigná el rol del usuario
                 'isLoggedIn' => true
             ]);
 
@@ -98,6 +98,6 @@ class Auth extends BaseController
         */
 
         session()->destroy();
-        return redirect()->to(''); // 5.1 Redirigí al usuario a la página principal
+        return redirect()->to('/'); // 5.1 Redirigí al usuario a la página principal
     }
 }
