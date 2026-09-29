@@ -18,7 +18,9 @@
             <!-- 1. Crear un formulario con método POST que envíe los datos a la ruta 'register' -->
             <form action="register.php" method="POST">
                 <div>
-                    <!-- 1.1 Insertar un campo para ingresar el nombre completo -->
+                    <!-- 1.1 Insertar un campo para ingresar el nombre completo --> <label for="name">Nombre:</label>
+                    <input type="name" id="name" name="name" placeholder="tunombre" required>
+                    
                 </div>
                 <div>
                     <!-- 1.2 Insertar un campo para ingresar el email --> <label for="mail">Correo Electronico:</label>
@@ -28,10 +30,10 @@
                     <!-- 1.3 Insertar un campo para ingresar la contraseña --> <label for="Contraseña">Contraseña:</label>
 <input type="Contraseña" id="Contraseña" name="Contraseña" placeholder="TuContraseña" required>
                 </div>
-                <!-- 1.3 Añadir un botón para enviar el formulario -->
+                <!-- 1.3 Añadir un botón para enviar el formulario --> <button type="submit">Enviar</button>
             </form>
             <div>
-                <!-- 2. Añadir un enlace para redirigir a 'login' si el usuario ya tiene cuenta -->
+                <!-- 2. Añadir un enlace para redirigir a 'login' si el usuario ya tiene cuenta --> <p>Ya tienes cuenta? <a href="<?= site_url('login') ?>">Ingresa aqui</a></p>
             </div>
         </div>
     </div>
