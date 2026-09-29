@@ -8,11 +8,11 @@ use CodeIgniter\Router\RouteCollection;
 
 
 $routes->get('/', 'Home::index');
-$routes->post('/', 'register()');
-$routes->get('/Controllers', 'processRegister()');
-$routes->post('/', 'login()');
-$routes->get('/Controllers', 'processLogin()');
-$routes->get('/Controllers', 'logout()');
+$routes->post('/', 'register');
+$routes->get('/Controllers', 'processRegister');
+$routes->post('/', 'login');
+$routes->get('/Controllers', 'processLogin');
+$routes->get('/Controllers', 'logout');
 
 
 // 1. RUTAS DE AUTENTICACIÓN DE USUARIO
