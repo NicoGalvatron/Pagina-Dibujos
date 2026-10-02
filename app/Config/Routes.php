@@ -13,7 +13,7 @@ $routes->get('/Controllers', 'processRegister');
 $routes->post('/', 'login');
 $routes->get('/Controllers', 'processLogin');
 $routes->get('/Controllers', 'logout');
-
+$routes->get('/', 'login');
 
 // 1. RUTAS DE AUTENTICACIÓN DE USUARIO
     // 1.1 Definí la ruta para mostrar el formulario de registro
