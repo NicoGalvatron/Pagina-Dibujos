@@ -12,10 +12,10 @@ class Auth extends BaseController
          En caso contrario, el método continúa y carga el formulario de registro.
         */
 
-        if (session()->get(isLoggedIn)) { // 1.1 Evaluá si el usuario ya está logueado
+        if (session()->get('isLoggedIn')) { // 1.1 Evaluá si el usuario ya está logueado
             return redirect()->to('/'); // 1.2 Si el usuario está logueado, redirigílo a la página principal
         }
-        return view('register'); // 1.3 Mostrá la vista de registro
+        return view('auth/register'); // 1.3 Mostrá la vista de registro
     }
 
     // 2. PROCESO DE REGISTRO DE USUARIO
@@ -54,10 +54,10 @@ class Auth extends BaseController
          En caso contrario, el método continúa y carga el formulario de login.
         */
 
-        if (session()->get(isLoggedIn)) { // 3.1 Evaluar si el usuario ya está logueado
+        if (session()->get('isLoggedIn')) { // 3.1 Evaluar si el usuario ya está logueado
             return redirect()->to('/'); // 3.2 Si el usuario está logueado, redirigílo a la página principal
         }
-        return view('login'); // 3.3 Mostrá la vista de login 
+        return view('auth/login'); // 3.3 Mostrá la vista de login 
     }
 
     // 4. PROCESO DE INICIO DE SESIÓN

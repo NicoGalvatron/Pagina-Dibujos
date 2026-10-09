@@ -8,11 +8,13 @@ use CodeIgniter\Router\RouteCollection;
 
 
 $routes->get('/', 'Home::index');
-$routes->post('/', 'register');
-$routes->get('/Controllers', 'processRegister');
-$routes->post('/', 'login');
-$routes->get('/Controllers', 'processLogin');
-$routes->get('/Controllers', 'logout');
+
+
+$routes->get('login', 'Auth::login'); 
+$routes->post('login', 'Auth::processLogin');
+$routes->get('logout', 'Auth::logout');
+$routes->get('register', 'Auth::register'); 
+$routes->post('register', 'Auth::register');
 
 // 1. RUTAS DE AUTENTICACIÓN DE USUARIO
     // 1.1 Definí la ruta para mostrar el formulario de registro
