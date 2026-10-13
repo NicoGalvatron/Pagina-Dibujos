@@ -16,7 +16,7 @@
             <?php endif; ?>
 
             <!-- 1. Crear un formulario con método POST que envíe los datos a la ruta 'register' -->
-            <form action="register.php" method="POST">
+            <form action="<?= base_url('register') ?>" method="POST">
                 <div>
                     <!-- 1.1 Insertar un campo para ingresar el nombre completo --> <label for="name">Nombre:</label>
                     <input type="name" id="name" name="name" placeholder="tunombre" required>

@@ -26,9 +26,9 @@ class Auth extends BaseController
         */
 
         $rules = [
-            'name'   => 'required|string|min:3', // 2.1 Validá que el nombre sea obligatorio y tenga al menos 3 caracteres
+            'name' => 'required|min_length[3]', // 2.1 Validá que el nombre sea obligatorio y tenga al menos 3 caracteres
             'email'    => 'required|email|unique:users,email', // 2.2 Validá que el email sea obligatorio, tenga un formato válido y sea único en la tabla 'users'
-            'password' => 'required|password|min:8' // 2.3 Validá que la contraseña sea obligatoria y tenga al menos 8 caracteres
+            'password' => 'required|min_length[8]' // 2.3 Validá que la contraseña sea obligatoria y tenga al menos 8 caracteres
         ];
 
         if (!$this->validate($rules)) { // 2.4 Validá los datos enviados desde el formulario de registro    
@@ -39,11 +39,11 @@ class Auth extends BaseController
         $userModel->insert([
             'name'   => $_POST['name'], // 2.5 Almacená el nombre enviado por POST
             'email'    => $_POST['email'], // 2.6 Almacená el email enviado por POST
-            'password' => isset($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : '', // 2.7 Almacená la contraseña enviada por POST, hasheada usando password_hash()
+           'password' => password_hash($this->request->getPost('password') ?? '', PASSWORD_DEFAULT), // 2.7 Almacená la contraseña enviada por POST, hasheada usando password_hash()
             'role'     => 'client' // 2.8 Asigná el rol 'client' al nuevo usuario
         ]);
 
-        return redirect()->to('login')->with('exito', 'Registro completado. Ahora podés iniciar sesión.'); // 2.9 Redirigí al usuario a la página de login
+        return redirect()->to('auth/login')->with('exito', 'Registro completado. Ahora podés iniciar sesión.'); // 2.9 Redirigí al usuario a la página de login
     }
 
     // 3. INICIO DE SESIÓN DE USUARIO

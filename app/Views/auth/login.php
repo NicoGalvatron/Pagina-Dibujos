@@ -13,7 +13,7 @@
             <?php endif; ?>
 
             <!-- 1. Crear un formulario con método POST que envíe los datos a la ruta 'login' --> 
-            <form action="login.php" method="POST">
+            <form action="<?= base_url('login') ?>" method="POST">
                 <div class="campo-mail">
                 <!-- 1.1 Insertar un campo para el mail --> <label for="mail">Correo Electronico:</label>
                 <input type="mail" id="mail" name="mail" placeholder="tu@correo.com" required>
