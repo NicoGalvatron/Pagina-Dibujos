@@ -15,5 +15,12 @@ class UserModel extends Model
     protected $allowedFields = ['username', 'email', 'password', 'role'];
     // 1.4 Definí una variable protegida que contenga un string con el tipo de retorno de las consultas (array por defecto)
     protected $returnType = 'array';
-
+    public function getByEmail(?string $email)
+    {
+        if (empty($email)) {
+            return null;
+        }
+        
+        return $this->where('email', $email)->first();
+    }
 }   

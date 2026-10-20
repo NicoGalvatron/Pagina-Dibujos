@@ -15,12 +15,12 @@
             <!-- 1. Crear un formulario con método POST que envíe los datos a la ruta 'login' --> 
             <form action="<?= base_url('login') ?>" method="POST">
                 <div class="campo-mail">
-                <!-- 1.1 Insertar un campo para el mail --> <label for="mail">Correo Electronico:</label>
-                <input type="mail" id="mail" name="mail" placeholder="tu@correo.com" required>
+                <!-- 1.1 Insertar un campo para el mail --> <label for="email">Correo Electronico:</label>
+                <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
                 </div>
                 <div class="campo-contraseña">
-                <!-- 1.2 Insertar un campo para la contraseña --> <label for="Contraseña">Contraseña:</label>
-<input type="Contraseña" id="Contraseña" name="Contraseña" placeholder="TuContraseña" required>
+                <!-- 1.2 Insertar un campo para la contraseña --> <label for="password">Contraseña:</label>
+<input type="password" id="password" name="password" placeholder="TuContraseña" required>
                 </div>
                 <!-- 1.3 Añadir un botón para enviar el formulario --> <button type="submit">Enviar</button>
             </form>

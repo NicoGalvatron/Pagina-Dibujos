@@ -37,12 +37,12 @@ class Auth extends BaseController
 
         $userModel = new UserModel();
         $userModel->insert([
-            'name'   => $_POST['name'], // 2.5 Almacená el nombre enviado por POST
-            'email'    => $_POST['email'], // 2.6 Almacená el email enviado por POST
-           'password' => password_hash($this->request->getPost('password') ?? '', PASSWORD_DEFAULT), // 2.7 Almacená la contraseña enviada por POST, hasheada usando password_hash()
-            'role'     => 'client' // 2.8 Asigná el rol 'client' al nuevo usuario
+            'name'     => $this->request->getPost('name'),
+            'email'    => $this->request->getPost('email'),
+            'password' => password_hash($this->request->getPost('password') ?? '', PASSWORD_DEFAULT),
+            'role'     => 'client'
         ]);
-
+        
         return redirect()->to('auth/login')->with('exito', 'Registro completado. Ahora podés iniciar sesión.'); // 2.9 Redirigí al usuario a la página de login
     }
 
