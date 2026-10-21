@@ -26,9 +26,9 @@ class Auth extends BaseController
         */
 
         $rules = [
-            'name' => 'required|min_length[3]', // 2.1 Validá que el nombre sea obligatorio y tenga al menos 3 caracteres
-            'email'    => 'required|email|unique:users,email', // 2.2 Validá que el email sea obligatorio, tenga un formato válido y sea único en la tabla 'users'
-            'password' => 'required|min_length[8]' // 2.3 Validá que la contraseña sea obligatoria y tenga al menos 8 caracteres
+            'name'     => 'required|min_length[3]', 
+            'email'    => 'required|valid_email|is_unique[users.email]',
+            'password' => 'required|min_length[8]' 
         ];
 
         if (!$this->validate($rules)) { // 2.4 Validá los datos enviados desde el formulario de registro    
@@ -43,7 +43,7 @@ class Auth extends BaseController
             'role'     => 'client'
         ]);
         
-        return redirect()->to('auth/login')->with('exito', 'Registro completado. Ahora podés iniciar sesión.'); // 2.9 Redirigí al usuario a la página de login
+        return redirect()->to('login')->with('exito', 'Registro completado. Ahora podés iniciar sesión.'); // 2.9 Redirigí al usuario a la página de login
     }
 
     // 3. INICIO DE SESIÓN DE USUARIO

@@ -15,25 +15,29 @@
                 </div>
             <?php endif; ?>
 
-            <!-- 1. Crear un formulario con método POST que envíe los datos a la ruta 'register' -->
+            <!-- 1. Formulario POST que envía los datos a la ruta 'register' -->
             <form action="<?= base_url('register') ?>" method="POST">
                 <div>
-                    <!-- 1.1 Insertar un campo para ingresar el nombre completo --> <label for="name">Nombre:</label>
-                    <input type="name" id="name" name="name" placeholder="tunombre" required>
-                    
+                    <!-- CORREGIDO: type="text" y name="name" -->
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" placeholder="tunombre" value="<?= old('name') ?>" required>
                 </div>
                 <div>
-                    <!-- 1.2 Insertar un campo para ingresar el email --> <label for="mail">Correo Electronico:</label>
-                <input type="mail" id="mail" name="mail" placeholder="tu@correo.com" required>
+                    <!-- CORREGIDO: type="email" y name="email" -->
+                    <label for="email">Correo Electronico:</label>
+                    <input type="email" id="email" name="email" placeholder="tu@correo.com" value="<?= old('email') ?>" required>
                 </div>
                 <div>
-                    <!-- 1.3 Insertar un campo para ingresar la contraseña --> <label for="Contraseña">Contraseña:</label>
-<input type="Contraseña" id="Contraseña" name="Contraseña" placeholder="TuContraseña" required>
+                    <!-- CORREGIDO: type="password" y name="password" -->
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" placeholder="TuContraseña" required>
                 </div>
-                <!-- 1.3 Añadir un botón para enviar el formulario --> <button type="submit">Enviar</button>
+                <!-- 1.3 Botón para enviar el formulario --> 
+                <button type="submit">Enviar</button>
             </form>
             <div>
-                <!-- 2. Añadir un enlace para redirigir a 'login' si el usuario ya tiene cuenta --> <p>Ya tienes cuenta? <a href="<?= site_url('login') ?>">Ingresa aqui</a></p>
+                <!-- 2. Enlace para redirigir a 'login' --> 
+                <p>Ya tienes cuenta? <a href="<?= site_url('login') ?>">Ingresa aqui</a></p>
             </div>
         </div>
     </div>
