@@ -16,9 +16,9 @@
         
         <div class="d-flex align-items-center text-white">
             <?php if (session()->get('isLoggedIn')): ?>
+                <a href="<?= site_url('drawingindex') ?>" class="btn btn-outline-light btn-sm me-2">Dibujos Mios</a>
                 <span class="me-3 small">Bienvenido <?= esc(strtok(session()->get('name') ?? '', ' ')) ?>!!!</span>
                 <a href="<?= site_url('logout') ?>" class="btn btn-outline-danger btn-sm">Cerrar Sesión</a>
-                <a href="<?= site_url('drawingindex') ?>" class="btn btn-outline-light btn-sm me-2">Dibujos Mios</a>
             <?php else: ?>
                 <a href="<?= site_url('login') ?>" class="btn btn-outline-light btn-sm me-2">Ingresar</a>
                 <a href="<?= site_url('register') ?>" class="btn btn-primary btn-sm">Registrarse</a>
