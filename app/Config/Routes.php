@@ -8,6 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 
 
 $routes->get('/', 'Home::index');
+$routes->get('drawingindex', 'Drawing::index'); 
 $routes->get('login', 'Auth::login'); 
 $routes->post('login', 'Auth::processLogin');
 $routes->get('logout', 'Auth::logout');
