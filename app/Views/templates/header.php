@@ -10,9 +10,9 @@
 </head>
 <body class="bg-light d-flex flex-column min-vh-100">
 
-<nav class="navbar navbar-dark bg-dark mb-4">
+<nav class="navbar navbar-light mb-4" style="background-color: #d4ac0d;">
     <div class="container-fluid px-4 d-flex justify-content-between align-items-center">
-        <a class="navbar-brand mb-0 h1" href="<?= site_url('/') ?>">Mi tienda</a>
+        <a class="navbar-brand mb-0 h1" href="<?= site_url('/') ?>">Mi Pagina de Dibujos</a>
         
         <div class="d-flex align-items-center text-white">
             <?php if (session()->get('isLoggedIn')): ?>
