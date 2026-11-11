@@ -2,10 +2,39 @@
 <html>
 <head>
     <title>403 Forbidden</title>
+    <style>
+        .btn-categoria {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+        }
+        .btn-categoria:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 
+
 <p>Directory access is forbidden.</p>
+
+
+    <meta charset="UTF-8">
+    <title>Categorías</title>
+   
+
+    <h2>Selecciona una categoría</h2>
+
+    <!-- 4 botones apuntando al mismo archivo con distinto parámetro -->
+    <a href="categorias.php?cat=tecnologia" class="btn-categoria">Tecnología</a>
+    <a href="categorias.php?cat=deportes" class="btn-categoria">Deportes</a>
+    <a href="categorias.php?cat=hogar" class="btn-categoria">Hogar</a>
+    <a href="categorias.php?cat=ropa" class="btn-categoria">Ropa</a>
 
 </body>
 </html>
