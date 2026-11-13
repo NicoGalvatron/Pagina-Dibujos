@@ -8,5 +8,40 @@
         <?php endif; ?>
     </div>
 </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .btn-categoria {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+        }
+        .btn-categoria:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <meta charset="UTF-8">
+    <title>Categorías</title>
+   
+
+    <h2>Selecciona una categoría</h2>
+
+    <!-- 4 botones apuntando al mismo archivo con distinto parámetro -->
+    <a href="categorias.php?cat=dibujos" class="btn-categoria">Dibujos</a>
+    <a href="categorias.php?cat=ilustraciones" class="btn-categoria">Ilustraciones</a>
+    <a href="categorias.php?cat=bocetos" class="btn-categoria">Bocetos</a>
+    <a href="categorias.php?cat=comics" class="btn-categoria">Comics</a>
+
+</body>
+</html>
 
 <?= view('templates/footer') ?>
