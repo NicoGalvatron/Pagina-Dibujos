@@ -36,10 +36,10 @@
     <h2>Selecciona una categoría</h2>
 
     <!-- 4 botones apuntando al mismo archivo con distinto parámetro -->
-    <a href="categorias.php?cat=dibujos" class="btn-categoria">Dibujos</a>
-    <a href="categorias.php?cat=ilustraciones" class="btn-categoria">Ilustraciones</a>
-    <a href="categorias.php?cat=bocetos" class="btn-categoria">Bocetos</a>
-    <a href="categorias.php?cat=comics" class="btn-categoria">Comics</a>
+    <a href="<?= base_url('Dibujos.php') ?>" class="btn-categoria">Dibujos</a>
+<a href="<?= base_url('Ilustraciones.php') ?>" class="btn-categoria">Ilustraciones</a>
+<a href="<?= base_url('Bocetos.php') ?>" class="btn-categoria">Bocetos</a>
+<a href="<?= base_url('Comics.php') ?>" class="btn-categoria">Comics</a>
 
 </body>
 </html>

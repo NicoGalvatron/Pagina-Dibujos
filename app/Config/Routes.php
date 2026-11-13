@@ -8,8 +8,12 @@ use CodeIgniter\Router\RouteCollection;
 
 
 $routes->get('/', 'Home::index');
+$routes->get('dibujos', 'Dibujos::index');
 $routes->get('drawingindex', 'drawingindex::index'); 
-$routes->get('categorias', 'categorias::index'); 
+$routes->get('Dibujos', 'Dibujos::index');
+$routes->get('Ilustraciones', 'Ilustraciones::index');
+$routes->get('Bocetos', 'Bocetos::index');
+$routes->get('Comics', 'Comics::index');
 $routes->get('login', 'Auth::login'); 
 $routes->post('login', 'Auth::processLogin');
 $routes->get('logout', 'Auth::logout');
