@@ -12,14 +12,18 @@
     <h1> Aqui puedes subir tus Bocetos!!! </h1>
 
 
-<form action="subir.php" method="POST" enctype="multipart/form-data">
-        <label for="texto">Texto descriptivo:</label><br>
-        <input type="text" id="texto" name="texto" required><br><br>
+    <form action="<?= site_url('subir') ?>" method="POST" enctype="multipart/form-data">
+    <?= csrf_field() ?>
+    
+    <input type="hidden" name="categoria" value="Dibujos">
 
-        <label for="imagen">Seleccionar imagen:</label><br>
-        <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
+    <label for="texto">Texto descriptivo:</label><br>
+    <input type="text" id="texto" name="texto" required><br><br>
 
-        <button type="submit">Subir</button>
-    </form>
+    <label for="imagen">Seleccionar imagen:</label><br>
+    <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
+
+    <button type="submit">Subir a Bocetos</button>
+</form>
 </body>
 </html>

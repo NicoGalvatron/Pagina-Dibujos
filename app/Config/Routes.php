@@ -18,6 +18,8 @@ $routes->post('login', 'Auth::processLogin');
 $routes->get('logout', 'Auth::logout');
 $routes->get('register', 'Auth::register'); 
 $routes->post('register', 'Auth::processRegister');
+$routes->get('subir', 'Subir::formulario'); // Muestra la vista con el formulario
+$routes->post('subir', 'Subir::index');     
 
 // 1. RUTAS DE AUTENTICACIÓN DE USUARIO
     // 1.1 Definí la ruta para mostrar el formulario de registro

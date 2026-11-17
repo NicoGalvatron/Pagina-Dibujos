@@ -39,6 +39,25 @@
 <a href="<?= base_url('Bocetos') ?>" class="btn-categoria">Bocetos</a>
 <a href="<?= base_url('Comics') ?>" class="btn-categoria">Comics</a>
 
+<h2>Imágenes subidas</h2>
+
+<div style="display: flex; flex-wrap: wrap; gap: 15px;">
+    <?php
+    $carpeta = 'uploads/';
+    // Busca todas las imágenes jpg, jpeg, png, gif y webp dentro de uploads/
+    $imagenes = glob($carpeta . "*.{jpg,jpeg,png,gif,webp,JPG,JPEG,PNG,GIF,WEBP}", GLOB_BRACE);
+
+    if (!empty($imagenes)) {
+        foreach ($imagenes as $imagen) {
+            echo '<div style="border: 1px solid #ccc; padding: 10px; border-radius: 8px;">';
+            echo '<img src="' . htmlspecialchars($imagen) . '" alt="Imagen subida" style="width: 200px; height: auto; display: block;">';
+            echo '</div>';
+        }
+    } else {
+        echo "<p>Todavía no hay imágenes subidas.</p>";
+    }
+    ?>
+</div>
 </body>
 </html>
 
