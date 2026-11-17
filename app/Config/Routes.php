@@ -8,7 +8,6 @@ use CodeIgniter\Router\RouteCollection;
 
 
 $routes->get('/', 'Home::index');
-$routes->get('dibujos', 'Dibujos::index');
 $routes->get('drawingindex', 'drawingindex::index'); 
 $routes->get('Dibujos', 'Dibujos::index');
 $routes->get('Ilustraciones', 'Ilustraciones::index');
