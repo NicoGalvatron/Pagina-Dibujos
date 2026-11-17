@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class drawingindex extends BaseController
+class Ilustraciones extends BaseController
 {
     public function index(): string
     {

@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class drawingindex extends BaseController
+class Bocetos extends BaseController
 {
     public function index(): string
     {
