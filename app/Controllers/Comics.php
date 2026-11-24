@@ -10,7 +10,7 @@ class Comics extends BaseController
     {
         $publicacionModel = new PublicacionModel();
 
-        $publicaciones = $publicacionModel->where('categoria_id', 1)
+        $publicaciones = $publicacionModel->where('categoria_id', 2)
         ->orderBy('fecha_publicacion', 'DESC')
         ->findAll();
 

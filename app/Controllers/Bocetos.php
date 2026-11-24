@@ -10,8 +10,7 @@ class Bocetos extends BaseController
     {
         $publicacionModel = new PublicacionModel();
 
-        // Busca todas las publicaciones de la categoría 'Dibujos'
-        $publicaciones = $publicacionModel->where('categoria_id', 1)
+        $publicaciones = $publicacionModel->where('categoria_id', 3)
         ->orderBy('fecha_publicacion', 'DESC')
         ->findAll();
 

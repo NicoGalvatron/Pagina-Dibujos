@@ -9,7 +9,6 @@ class Dibujos extends BaseController
     public function index(): string
     {
         $publicacionModel = new PublicacionModel();
-
         $publicaciones = $publicacionModel->where('categoria_id', 1)
         ->orderBy('fecha_publicacion', 'DESC')
         ->findAll();

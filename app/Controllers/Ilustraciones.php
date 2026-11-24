@@ -10,7 +10,7 @@ class Ilustraciones extends BaseController
     {
         $publicacionModel = new PublicacionModel();
 
-        $publicaciones = $publicacionModel->where('categoria_id', 1)
+        $publicaciones = $publicacionModel->where('categoria_id', 4)
         ->orderBy('fecha_publicacion', 'DESC')
         ->findAll();
 
