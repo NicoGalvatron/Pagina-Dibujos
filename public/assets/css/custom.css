@@ -1,0 +1,29 @@
+body.fondo-menu-normal {
+    background-color: #20229f;
+    background-image: 
+        radial-gradient(circle at 15% 20%, hsla(48, 88%, 44%, 0.886) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(48, 88%, 44%, 0.886) 0%, transparent 50%),
+        repeating-linear-gradient(
+            45deg,
+            rgba(48, 88%, 44%, 0.886) 0px,
+            rgba(48, 88%, 44%, 0.886) 10px,
+            transparent 10px,
+            transparent 20px
+        );
+    background-attachment: fixed;
+}
+
+/* Fondo exclusivo para "Dibujos Míos" (Estilo mesa de bocetos cuadriculada) */
+body.fondo-mis-dibujos {
+    background-color: #f8f9fa;
+    background-image: 
+        linear-gradient(to right, rgba(33, 37, 41, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(33, 37, 41, 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* Mantiene las tarjetas nítidas sobre cualquiera de los dos fondos */
+.card {
+    background-color: rgba(255, 255, 255, 0.96);
+    border-radius: 12px;
+}

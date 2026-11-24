@@ -8,22 +8,28 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('assets/css/custom.css') ?>">
 </head>
-<body class="bg-light d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100 <?= url_is('drawingindex*') ? 'fondo-mis-dibujos' : 'fondo-menu-normal' ?>">
 
 <nav class="navbar navbar-light mb-4" style="background-color: #d4ac0d;">
     <div class="container-fluid px-4 d-flex justify-content-between align-items-center">
         <a class="navbar-brand mb-0 h1" href="<?= site_url('/') ?>">Mi Pagina de Dibujos</a>
         
         <div class="d-flex align-items-center text-white">
-            <?php if (session()->get('isLoggedIn')): ?>
-                <a href="<?= site_url('drawingindex') ?>" class="btn btn-outline-light btn-sm me-2">Dibujos Mios</a>
-                <span class="me-3 small">Bienvenido <?= esc(strtok(session()->get('name') ?? '', ' ')) ?>!!!</span>
-                <a href="<?= site_url('logout') ?>" class="btn btn-outline-danger btn-sm">Cerrar Sesión</a>
-            <?php else: ?>
-                <a href="<?= site_url('login') ?>" class="btn btn-outline-light btn-sm me-2">Ingresar</a>
-                <a href="<?= site_url('register') ?>" class="btn btn-primary btn-sm">Registrarse</a>
-            <?php endif; ?>
-        </div>
+    <?php if (session()->get('isLoggedIn')): ?>
+        
+        <?php if (url_is('drawingindex*')): ?>
+            <a href="<?= site_url('/') ?>" class="btn btn-dark btn-sm me-2">Volver al inicio</a>
+        <?php else: ?>
+            <a href="<?= site_url('drawingindex') ?>" class="btn btn-outline-light btn-sm me-2">Dibujos Mios</a>
+        <?php endif; ?>
+
+        <span class="me-3 small">Bienvenido <?= esc(strtok(session()->get('name') ?? '', ' ')) ?>!!!</span>
+        <a href="<?= site_url('logout') ?>" class="btn btn-outline-danger btn-sm">Cerrar Sesión</a>
+    <?php else: ?>
+        <a href="<?= site_url('login') ?>" class="btn btn-outline-light btn-sm me-2">Ingresar</a>
+        <a href="<?= site_url('register') ?>" class="btn btn-primary btn-sm">Registrarse</a>
+    <?php endif; ?>
+</div>
     </div>
 </nav>
 

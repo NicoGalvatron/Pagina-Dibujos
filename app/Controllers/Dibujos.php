@@ -10,10 +10,9 @@ class Dibujos extends BaseController
     {
         $publicacionModel = new PublicacionModel();
 
-        // Busca todas las publicaciones de la categoría 'Dibujos'
-        $publicaciones = $publicacionModel->where('categoria', 'Dibujos')
-                                          ->orderBy('fecha_publicacion', 'DESC')
-                                          ->findAll();
+        $publicaciones = $publicacionModel->where('categoria_id', 1)
+        ->orderBy('fecha_publicacion', 'DESC')
+        ->findAll();
 
         // Envía los datos a tu vista app/Views/drawings/Dibujos.php
         return view('drawings/Dibujos', [

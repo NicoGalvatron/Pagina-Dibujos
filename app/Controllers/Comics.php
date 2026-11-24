@@ -10,9 +10,9 @@ class Comics extends BaseController
     {
         $publicacionModel = new PublicacionModel();
 
-        $publicaciones = $publicacionModel->where('categoria', 'Comics')
-                                          ->orderBy('fecha_publicacion', 'DESC')
-                                          ->findAll();
+        $publicaciones = $publicacionModel->where('categoria_id', 1)
+        ->orderBy('fecha_publicacion', 'DESC')
+        ->findAll();
 
         return view('drawings/Comics', [
             'publicaciones' => $publicaciones

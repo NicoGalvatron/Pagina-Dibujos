@@ -11,7 +11,7 @@ class PublicacionModel extends Model
 
     protected $allowedFields = [
         'usuario_id',
-        'categoria',
+        'categoria_id', // <-- Antes decía 'categoria'
         'texto',
         'nombre_archivo',
         'tipo_imagen',
