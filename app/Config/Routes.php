@@ -20,6 +20,12 @@ $routes->get('register', 'Auth::register');
 $routes->post('register', 'Auth::processRegister');
 $routes->get('subir', 'Subir::formulario'); // Muestra la vista con el formulario
 $routes->post('subir', 'Subir::index');     
+$routes->group('pagos', ['filter' => 'auth'], static function ($routes) {
+    $routes->post('iniciar/(:num)', 'Pagos::iniciar/$1'); // crea el pedido y la preferencia
+    $routes->get('exito', 'Pagos::exito'); // vuelve de Mercado Pago
+    $routes->get('fallo', 'Pagos::fallo');
+    $routes->get('pendiente', 'Pagos::pendiente');
+});
 
 // 1. RUTAS DE AUTENTICACIÓN DE USUARIO
     // 1.1 Definí la ruta para mostrar el formulario de registro
